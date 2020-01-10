@@ -1,14 +1,23 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang=pl xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Sklep ekologiczny. </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
-	<h1>Form</h1>
+<style>
+body {
+ background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cork-wallet.png");
+ }
+</style>
+<body> 
+	<h1>Dodaj produkt</h1>
     <form action="#" th:action="@{/witam}" th:object="${ModelAtributeName}" method="post">
-    	<p>Id: <input type="text" th:field="*{id}" /></p>
-        <p>Message: <input type="text" th:field="*{itemName}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <p>Nazwa: <input type="text" th:field="*{itemName}" /></p>
+        <p>Opis: <input type="text" th:field="*{description}" /></p>
+        <p>Ilość w magazynie: <input type="text" th:field="*{quantityInStock}" /></p>
+        <p>Cena sprzedaży: <input type="text" th:field="*{sellingPrice}" /></p>
+        <p>Obrazek: <input type="file" th:field="*{image}" /></p>
+          
+        <p><input type="submit" value="Prześlij" /> <input type="reset" value="Reset" /></p>
     </form></body>
 </html>

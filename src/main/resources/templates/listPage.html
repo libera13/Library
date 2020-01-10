@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang=pl xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lista produktow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<style>
+body {
+ background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cork-wallet.png");
+ }
+</style>
+<body>
+    <div class="container my-2">
+        <div class="card">
+            <div class="card-body">
+                <div th:switch="${ItemListAttr}" class="container my-5">
+                    <p class="my-5">
+                        <a href="/witam" class="btn btn-primary"><i
+       class="fas fa-user-plus ml-2"> Add Student</i></a>
+                    </p>
+                    <div class="col-md-10">
+                        <h2 th:case="null">No Students yet!</h2>
+                        <div th:case="*">
+                            <form action="#" th:action="@{/find}" th:object="${search}" method="get">
+                           	      <p>id: <input type="text" th:field="*{id}" /></p>
+                           	      <p><input type="submit" value="Prześlij" /> <input type="reset" value="Reset" /></p>
+                           	</form>
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Opis</th>
+                                        <th>Ilość w magazynie</th>
+                                        <th>Cena sprzedaży</th>
+                                        <th>Edytuj</th>
+                                        <th>Usuń</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="item : ${ItemListAttr}">
+                                        <td th:text="${item.itemName}"></td>
+                                        <td th:text="${item.description}"></td>
+                                        <td th:text="${item.quantityInStock}"></td>
+                                        <td th:text="${item.sellingPrice}"></td>
+                                        <td><a th:href="@{/produkty/edytuj/{id}(id=${item.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                        <td><a th:href="@{/produkty/usun/{id}(id=${item.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

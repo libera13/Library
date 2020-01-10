@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aktualizacja produktu</title>
+</head>
+<body>
+	<h1>Wprowadz zmiany w produkcie</h1>
+    <form action="#" th:action="@{/produkty/update/{id}(id=${item.id})}" th:object="${item}" method="post">
+        <p>Nazwa: <input type="text" th:field="*{itemName}" id="itemName"/></p>
+        <p>Opis: <input type="text" th:field="*{description}" id="description" /></p>
+        <p>Ilość w magazynie: <input type="text" th:field="*{quantityInStock}" id="quantityInStock"/></p>
+        <p>Cena sprzedaży: <input type="text" th:field="*{sellingPrice}" id = "sellingPrice"/></p>  
+        <p><input type="submit" value="Prześlij" /> <input type="reset" value="Reset" /></p>
+    </form></body>
+</body>
+</html>
