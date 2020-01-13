@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.bootmvc.thymeleaf.devtools.entities.Item;
 import com.example.bootmvc.thymeleaf.devtools.repositories.InventoryRepository;
-import com.example.bootmvc.thymeleaf.devtools.services.ItemService;
+import com.example.bootmvc.thymeleaf.devtools.services.ItemServiceImpl;
 
 
 @Controller
@@ -23,7 +23,7 @@ public class ShowListController {
 	@Autowired
 	protected InventoryRepository IR;
 	@Autowired
-	protected ItemService itemService;
+	protected ItemServiceImpl itemServiceImpl;
 	
 	
 	@GetMapping("/lista")
@@ -31,13 +31,7 @@ public class ShowListController {
 		model.addAttribute("ItemListAttr", IR.findAll());
 		return "listPage";
 	}
-//	find item by id
-	@GetMapping("/find/{id}")
-	public String findItem(long id, Model model) {
-		Item item = IR.findById(id);
-		model.addAttribute("search", item);
-		return "listPage";
-	}   
+
 	@GetMapping("/usun/{id}")
 	public String deleteItem(@PathVariable("id") long id, Model model) {
 		Item item = IR.findById(id);
@@ -52,10 +46,14 @@ public class ShowListController {
 		return "updateItem";
 	}
 	@PostMapping("/update/{id}")
-	public String updateItem(@PathVariable("id") long id, @Valid Item item, BindingResult result, Model model) {
-		itemService.update(item);
-		model.addAttribute("ItemListAttr", item);
-		return "updateItem";
+	public String updateItem(@PathVariable("id") long id, @Valid Item item, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "updateItem";
+		    }
+		else {
+			itemServiceImpl.update(item);
+		    return "redirect:/produkty/lista";
+		}
 	}
 	
 	

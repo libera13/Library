@@ -12,10 +12,12 @@ import com.example.bootmvc.thymeleaf.devtools.repositories.InventoryRepository;
 @Service("itemService")
 public class ItemServiceImpl implements ItemService{
 	@Autowired
-	private InventoryRepository ur;
+	private InventoryRepository ir;
 	
 	@Override
 	public Item update(Item item) {
-		return ur.save(item);
+		return ir.save(item);
 	};
+
+
 }

@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang=pl xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Aktualizacja książki</title>
+    <title>Biblioteka xyz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <style>
 body {
  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cork-wallet.png");
  }
 </style>
-<body>
-	<h1>Wprowadź zmiany w produkcie</h1>
-    <form action="#" th:action="@{/produkty/update/{id}(id=${item.id})}" th:object="${item}" method="post">
-         <table>
+<body> 
+	<h1>Dodaj produkt</h1>
+    <form action="#" th:action="@{/dodaj}" th:object="${item}" method="post">
+        <table>
                 <tr>
                     <td>Tytuł:</td>
                     <td><input type="text" th:field="*{itemName}" /></td>
@@ -41,8 +41,8 @@ body {
                 <tr>
                     <td><button type="submit">Wyślij</button>  <button type="reset">Reset</button></td>
                 </tr>
-        </table>
-    </form></body>
-    <a href="/produkty/lista">Lista produktów</a>
+           </table>
+           <a href="/produkty/lista">Lista produktów</a>
+    </form>
 </body>
 </html>

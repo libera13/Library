@@ -5,10 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.example.bootmvc.thymeleaf.devtools.entities.Item;
 
-@RepositoryRestResource(path = "Items")
+@RepositoryRestResource(path = "Iems")
 public interface InventoryRepository extends JpaRepository<Item, Long>{
 	public Item findById(long id);
-	
-	//@Query(value = "SELECT * FROM items WHERE id = 1 ")
-	//Collection<Item> findItemNumber1();
 }

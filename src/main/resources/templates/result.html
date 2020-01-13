@@ -1,14 +1,23 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang=pl xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Biblioteka xyz</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+<style>
+body {
+ background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cork-wallet.png");
+ }
+</style>
 <body>
-	<h1>Result</h1>
-    <p th:text="'id: ' + ${item.id}" />
-    <p th:text="'content: ' + ${item.itemName}" />
-    <a href="/witam">Submit another message</a>
-    <a href="/produkty/lista">Lista produktow</a>
+	<h1>Zapisano</h1>
+    <p th:text="'Id: ' + ${item.id}" />
+    <p th:text="'Tytuł: ' + ${item.itemName}" />
+    <p th:text="'Autor: ' + ${item.author}" />
+    <p th:text="'Ilość w magazynie: ' + ${item.quantityInStock}" />
+    <p th:text="'Strony: ' + ${item.pages}" />
+    <p th:text="'Rok wydania: ' + ${item.publicationDate}" />
+    <a href="/dodaj">Dodaj książkę</a> <br>
+    <a href="/produkty/lista">Lista produktów</a>
 </body>
 </html>
