@@ -29,7 +29,7 @@ public class Item {
 	private Long quantityInStock;
 	
 	@Min(value = 0L)
-	@Digits(fraction = 2, integer = 4)
+	@Digits(fraction = 0, integer = 4)
 	@NotNull(message = "Podaj datę wydania")
 	private Long publicationDate;
 	

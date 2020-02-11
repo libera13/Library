@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html lang=pl xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="utf-8" />
     <title>Biblioteka xyz</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Tylko najlepsze książki" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <style>
 body {
@@ -10,14 +13,13 @@ body {
  }
 </style>
 <body>
-	<h1>Zapisano</h1>
-    <p th:text="'Id: ' + ${item.id}" />
-    <p th:text="'Tytuł: ' + ${item.itemName}" />
-    <p th:text="'Autor: ' + ${item.author}" />
-    <p th:text="'Ilość w magazynie: ' + ${item.quantityInStock}" />
-    <p th:text="'Strony: ' + ${item.pages}" />
-    <p th:text="'Rok wydania: ' + ${item.publicationDate}" />
-    <a href="/dodaj">Dodaj książkę</a> <br>
-    <a href="/produkty/lista">Lista produktów</a>
+    <div th:replace="menu.html :: header"></div>
+	<h1 th:text="#{result.save}"></h1>
+    <p th:text="#{books.title} + ': '+ ${item.itemName}" />
+    <p th:text="#{books.author} + ': ' + ${item.author}" />
+    <p th:text="#{books.quantity} + ': ' + ${item.quantityInStock}" />
+    <p th:text="#{books.pages} + ': ' + ${item.pages}" />
+    <p th:text="#{books.publicationYear}  + ': ' + ${item.publicationDate}" />
+
 </body>
 </html>

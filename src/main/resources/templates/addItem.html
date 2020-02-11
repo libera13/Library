@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <html lang=pl xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="utf-8" />
     <title>Biblioteka xyz</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Tylko najlepsze książki" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 </head>
 <style>
 body {
@@ -10,39 +12,38 @@ body {
  }
 </style>
 <body> 
-	<h1>Dodaj produkt</h1>
-    <form action="#" th:action="@{/dodaj}" th:object="${item}" method="post">
+	<h1 th:text="#{menu.add}"></h1>
+    <form action="#" th:action="@{/books/add}" th:object="${item}" method="post">
         <table>
                 <tr>
-                    <td>Tytuł:</td>
+                    <td th:text="#{books.title} + ': '"></td>
                     <td><input type="text" th:field="*{itemName}" /></td>
                     <td th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}">ItemName Error</td>
                 </tr>
                 <tr>
-                    <td>Autor:</td>
+                    <td th:text="#{books.author} + ': '">Autor:</td>
                     <td><input type="text" th:field="*{author}" /></td>
                     <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
                 </tr>
                  <tr>
-                    <td>Ilość w magazynie:</td>
+                    <td th:text="#{books.quantity} + ': '">Ilość w magazynie:</td>
                     <td><input type="number" th:field="*{quantityInStock}" /></td>
                     <td th:if="${#fields.hasErrors('quantityInStock')}" th:errors="*{quantityInStock}">QuantityInStock Error</td>
                 </tr>
                  <tr>
-                    <td>Strony:</td>
+                    <td th:text="#{books.pages} + ': '">Strony:</td>
                     <td><input type="number" th:field="*{pages}" /></td>
                     <td th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}">Pages Error</td>
                 </tr>
                  <tr>
-                    <td>Rok wydania:</td>
+                    <td th:text="#{books.publicationYear} + ': '">Rok wydania:</td>
                     <td><input type="number" th:field="*{publicationDate}" /></td>
                     <td th:if="${#fields.hasErrors('publicationDate')}" th:errors="*{publicationDate}">Age Error</td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Wyślij</button>  <button type="reset">Reset</button></td>
+                    <td><button type="submit" th:text="#{button.save}"></button>  <button type="reset">Reset</button></td>
                 </tr>
            </table>
-           <a href="/produkty/lista">Lista produktów</a>
     </form>
 </body>
 </html>

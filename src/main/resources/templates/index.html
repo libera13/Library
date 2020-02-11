@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="utf-8" />
+	<title>Biblioteka xyz</title>
+	<meta name="description" content="Tylko najlepsze książki" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<link rel="stylesheet" href="../fontello/css/fontello.css" type="text/css" />
+	<link rel="stylesheet" href="/css/main.css"> <!-- css do menu-->
+
+
+	<style>
+	body 
+	{
+		background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cork-wallet.png");
+		color: #ffffff;
+	}
+	 #container
+	{
+		width: 1000px;
+		margin-left: auto;
+		margin-right: auto;		
+	}
+	#logo
+	{
+		background-color: black;
+		text-align: center;
+		padding: 15px;
+	}
+	#content
+	{
+		text-align: center;
+		padding: 20px;
+		width: 1000px;
+		
+	}
+	.tile1
+	{
+		margin-left: auto;				
+		margin-right: auto;
+		height: 100px;
+		width: 200px;
+		text-align: center;
+		background-color: #234232
+	}
+	.tile1:hover
+	{
+		background-color: #123121;
+	}
+	.tile2
+	{
+		margin-left: auto;				
+		margin-right: auto;
+		height: 100px;
+		width: 200px;
+		background-color: #3fa232
+	}
+	.tile2:hover
+	{
+		background-color: #2e9121;
+	}
+	a
+	{
+		color: #ffffff;
+		text-decoration: none;
+	}
+	
+	a:visited
+	{
+		color:blue
+	}
+
+	 
+	 
+	</style>
+</head>
+
+
+<body>
+	<div id="container">
+
+		<div th:replace="/fragments/menu.html :: header"></div>
+		<div id="content" class="rectangle">
+			<h1>MENU</h1>
+			
+			<a href="/books/add">
+				<div class="tile1">
+					<i class="icon-plus-circled"></i><br /> Dodaj książkę 
+				</div>
+			</a>	
+					
+			<a href="/books/list">
+				<div class="tile2">
+					<i class="icon-list"></i><br /> Lista produktów 
+				</div>
+			</a>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
