@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+	<meta charset="utf-8">
+	<title></title>
+
+	<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+
+	<link rel="stylesheet" href="/static/css/main.css">
+
+	
+</head>
+<body>
+
+	<header th:fragment="header">
+
+<!--		<h1 class="logo">Biblio</h1>-->
+
+		<nav id="topnav">
+
+			<ul class="menu">
+				<li><a href="/"><i th:text="#{menu.mainPage}"></i></a></li>
+				<li><a href="/books/add"><i th:text="#{menu.add}"></i></a></li>
+				<li><a href="/books/list"><i th:text="#{menu.itemList}"></i></a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin"><i th:text="#{menu.adminPage}"></i></a></li>
+				<li sec:authorize="isAnonymous()"><a href="/login"><i th:text="#{menu.login}"></i></a></li>
+				<li sec:authorize="isAnonymous()"><a href="/register"><i th:text="#{menu.register}"></i></a></li>
+<!--				<li sec:authorize="isAuthenticated()"><a href="/profil"><i th:text="#{menu.profil}"></i></a></li>-->
+				<li sec:authorize="isAuthenticated()"><a href="/logout"><i th:text="#{menu.logout}"></i></a></li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+</body>
+  
+</html>

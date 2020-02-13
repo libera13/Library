@@ -1,71 +1,40 @@
-<!DOCTYPE html>
-<html lang=pl xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Lista książek</title>
+    <meta charset="utf-8" />
+    <title>Biblioteka xyz</title>
+    <meta name="description" content="Tylko najlepsze książki" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--Bootstrap-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap&subset=latin-ext" rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/main.css"> <!-- css do menu-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#locales").change(function () {
-                var selectedOption = $('#locales').val();
-                if (selectedOption != ''){
-                    window.location.replace('international?lang=' + selectedOption);
-                }
-            });
-        });
-    </script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">-->
+<!--    </script>-->
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function() {-->
+<!--            $("#locales").change(function () {-->
+<!--                var selectedOption = $('#locales').val();-->
+<!--                if (selectedOption != ''){-->
+<!--                    window.location.replace('international?lang=' + selectedOption);-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 </head>
-<style>
-body 
-{
-	/* Background pattern from Toptal Subtle Patterns */
-	background-image: url("../static/images/blue-snow.png");
-	font-family: 'Open Sans', sans-serif;
-}
-#logo
-{
-	width: 100%;
-	height: 50px;
-	background-color: #6699CC;
-	font-size: 30px;
-	color: white;
-	text-align: center;
-	text-transform: uppercase;
-	padding: 5px 0px 5px 0px;
-	letter-spacing: 3px;
-	border-bottom: 2px solid #5588BB;
-}
-.container
-{
-	margin-top:10px;
-	margin-left:auto;
-	margin-right:auto;
-	background-color:white;
-	width:880px;
-	padding:10px;
-}
-</style>
 <body>
-	<div id="logo">Wykład #1: Monitory komputerowe</div>
-
-    <span th:text="#{lang.change}"></span>:
-    <select id="locales">
-        <option value=""></option>
-        <option value="en" th:text="#{lang.eng}"></option>
-        <option value="fr" th:text="#{lang.pl}"></option>
-    </select>
-
     <div class="container">
+<!--        <span th:text="#{lang.change}"></span>:-->
+<!--        <select id="locales">-->
+<!--            <option value=""></option>-->
+<!--            <option value="en" th:text="#{lang.eng}"></option>-->
+<!--            <option value="fr" th:text="#{lang.pl}"></option>-->
+<!--        </select>-->
+        <div th:replace="fragments/menu :: header">Header</div>
         <div class="card">
             <div class="card-body">
                 <div th:switch="${ItemListAttr}" class="container my-5">
