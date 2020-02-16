@@ -3,7 +3,7 @@
 Link do aplikacji wdrożonej na heroku. https://library-app2.herokuapp.com/
 
 Uwagi:
-Pierwsze uruchomienie od kilkunastu minut może trwać 30 sek. Logowanie działa dopiero za drugim wprowadzenia poprawnych danych
+Pierwsze uruchomienie od kilkunastu minut może trwać 30 sek. Logowanie działa dopiero za drugim wprowadzeniem poprawnych danych
 
 
 
