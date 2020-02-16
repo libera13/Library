@@ -1,7 +1,10 @@
 # Library
 
-Link do aplikacji wdrożonej na heroku. Pierwsze uruchomienie od kilkunastu minut może trwać 30 sek. Login działa dopiero za drugim razem
-https://library-app2.herokuapp.com/
+Link do aplikacji wdrożonej na heroku. https://library-app2.herokuapp.com/
+
+Uwagi:
+Pierwsze uruchomienie od kilkunastu minut może trwać 30 sek. Logowanie działa dopiero za drugim wprowadzenia poprawnych danych
+
 
 
 Wykorzystano:
